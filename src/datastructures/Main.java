@@ -16,6 +16,9 @@ public class Main {
     //this rules of simplification is called drop non dominant terms
   }
   public static void main(String[] args) {
-    printItems(10);
+    //printItems(10);
+
+    Add add = new Add();
+    System.out.println(add.add(5, 10));
   }
 }
