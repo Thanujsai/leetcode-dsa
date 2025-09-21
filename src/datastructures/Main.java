@@ -20,5 +20,8 @@ public class Main {
 
     Add add = new Add();
     System.out.println(add.add(5, 10));
+
+    Test test = new Test();
+    test.printItems(10, 5);
   }
 }
