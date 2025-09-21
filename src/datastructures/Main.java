@@ -7,6 +7,13 @@ public class Main {
         System.out.println(i + " " + j);
       }
     }
+
+    for(int j=0; j<n; j++){//O(n) time complexity
+      System.out.println(j);
+    }
+
+    //therefore this function has O(n^2 + n) = O(n^2) time complexity since n^2 grows faster than n as n gets larger, n^2 is dominant term
+    //this rules of simplification is called drop non dominant terms
   }
   public static void main(String[] args) {
     printItems(10);
