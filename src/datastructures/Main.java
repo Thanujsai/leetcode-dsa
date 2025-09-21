@@ -1,4 +1,5 @@
 package datastructures;
+
 public class Main {
 
   public static void printItems(int n){
