@@ -7,8 +7,8 @@ public class LinkedList {
     private int length;
 
     //this class is only used to create a node for the linked list
-    class Node {
-        int value;
+    public class Node {
+        public int value;
         Node next;
 
         Node(int value) {
@@ -58,6 +58,29 @@ public class LinkedList {
         }
         length++;
         
+    }
+
+    public Node removeLast() {
+        //removes the last node of the list
+        if(length == 0) return null;
+        Node temp = head;
+        Node pre = head;
+
+        while(temp.next != null){
+            pre = temp;
+            temp = temp.next;
+        }
+
+        tail = pre;
+        tail.next = null;
+
+        length--;
+        if(length == 0){
+            head = null;
+            tail = null;
+        }
+
+        return temp;
     }
 
     public void prepend(int value) {
