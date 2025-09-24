@@ -11,5 +11,24 @@ public class Main {
     System.out.println(myLinkedList.removeLast().value);
     System.out.println(myLinkedList.removeLast().value);
     System.out.println(myLinkedList.removeLast());
+
+    System.out.println("checking prepend");
+    myLinkedList.prepend(1);
+    myLinkedList.prepend(2);
+    myLinkedList.prepend(3);
+
+    myLinkedList.printList();
+
+    System.out.println(myLinkedList.removeFirst().value);
+    myLinkedList.printList();
+
+    System.out.println(myLinkedList.removeFirst().value);
+    myLinkedList.printList();
+
+    System.out.println(myLinkedList.removeFirst().value);
+    myLinkedList.printList();
+
+    System.out.println(myLinkedList.removeFirst());
+    myLinkedList.printList();
   }
 }

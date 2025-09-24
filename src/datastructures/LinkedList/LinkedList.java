@@ -85,7 +85,34 @@ public class LinkedList {
 
     public void prepend(int value) {
         //creates a new node
-        //adds a new node to the start of the list
+        Node newNode = new Node(value);
+
+        if(length == 0){
+            head = newNode;
+            tail = newNode;
+        }
+        else{
+            //adds a new node to the start of the list
+            newNode.next = head;
+            head = newNode;
+        }
+
+        length++;
+    }
+
+    public Node removeFirst() {
+        //removes the first node of the list
+        if(length == 0) return null;
+
+        Node temp = head;
+        head = head.next;
+        temp.next = null;
+        length--;
+        if(length == 0){
+            tail = null;
+        }
+
+        return temp;//pointer to the node we have removed
     }
 
     public boolean insert(int index, int value) {
