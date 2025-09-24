@@ -10,5 +10,9 @@ public class Main {
     myLinkedList.getLength();
 
     myLinkedList.printList();
+
+    myLinkedList.append(5);
+    myLinkedList.getLength();
+    myLinkedList.printList();
   }
 }
