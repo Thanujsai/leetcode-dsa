@@ -115,10 +115,66 @@ public class LinkedList {
         return temp;//pointer to the node we have removed
     }
 
+    public Node get(int index){
+        //gets the node at the given index
+        if(index < 0 || index >= length) return null;
+        Node temp = head;
+        for(int i = 0; i < index; i++){
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+    public boolean set(int index, int value) {
+        //sets the value of the node at the given index
+        Node temp = get(index);
+        if(temp != null){
+            temp.value = value;
+            return true;
+        }
+        return false;
+    }
+
     public boolean insert(int index, int value) {
-        //creates a new node
+        if(index < 0 || index > length) return false;
+        //inserts a new node at the start of the list
+        if(index == 0){
+            prepend(value);
+            return true;
+        }
+
+        //inserts a new node at the end of the list
+        if(index == length){
+            append(value);
+            return true;
+        }
+
         //inserts a new node at the given index
+        Node newNode = new Node(value);
+        Node temp = get(index - 1);
+        newNode.next = temp.next;
+        temp.next = newNode;
+        length++;
+
         return true;
+    }
+
+    public Node remove(int index) {
+        if(index < 0 || index >= length) return null;
+        //removes the first node of the list
+        if(index == 0) return removeFirst();
+
+        //removes the last node of the list
+        if(index == length - 1) return removeLast();
+
+        //removes the node at the given index
+        Node prev = get(index - 1);
+        Node temp = prev.next;
+        prev.next = temp.next;
+        temp.next = null;
+        length--;
+
+        return temp;
     }
 
 }
