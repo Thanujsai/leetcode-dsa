@@ -1,28 +1,55 @@
 package datastructures;
+import datastructures.LinkedList.LinkedList;
 
 public class Main {
-
-  public static void printItems(int n){
-    for(int i=0; i<n; i++){//O(n^2) time complexity
-      for(int j=0; j<n; j++){
-        System.out.println(i + " " + j);
-      }
-    }
-
-    for(int j=0; j<n; j++){//O(n) time complexity
-      System.out.println(j);
-    }
-
-    //therefore this function has O(n^2 + n) = O(n^2) time complexity since n^2 grows faster than n as n gets larger, n^2 is dominant term
-    //this rules of simplification is called drop non dominant terms
-  }
   public static void main(String[] args) {
-    //printItems(10);
+    LinkedList myLinkedList = new LinkedList(4);
 
-    Add add = new Add();
-    System.out.println(add.add(5, 10));
+    myLinkedList.append(5);
 
-    Test test = new Test();
-    test.printItems(10, 5);
+    myLinkedList.printList();
+    System.out.println(myLinkedList.removeLast().value);
+    System.out.println(myLinkedList.removeLast().value);
+    System.out.println(myLinkedList.removeLast());
+
+    System.out.println("checking prepend");
+    myLinkedList.prepend(1);
+    myLinkedList.prepend(2);
+    myLinkedList.prepend(3);
+
+    myLinkedList.printList();
+
+    System.out.println(myLinkedList.removeFirst().value);
+    myLinkedList.printList();
+
+    System.out.println(myLinkedList.removeFirst().value);
+    myLinkedList.printList();
+
+    System.out.println(myLinkedList.removeFirst().value);
+    myLinkedList.printList();
+
+    System.out.println(myLinkedList.removeFirst());
+    myLinkedList.printList();
+
+    myLinkedList.append(0);
+    myLinkedList.append(1);
+    myLinkedList.append(2);
+    myLinkedList.printList();
+
+    myLinkedList.set(1, 5);
+    myLinkedList.printList();
+
+    System.out.println("inserting");
+    myLinkedList.insert(0, 0);
+    myLinkedList.printList();
+
+    myLinkedList.insert(2, 3);
+    myLinkedList.printList();
+
+    myLinkedList.remove(2);
+    myLinkedList.printList();
+
+    myLinkedList.remove(2);
+    myLinkedList.printList();
   }
 }
