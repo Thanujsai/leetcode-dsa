@@ -1,4 +1,4 @@
-package datastructures.LinkedList;
+package datastructures;
 
 public class LinkedList {
 
@@ -7,11 +7,11 @@ public class LinkedList {
     private int length;
 
     //this class is only used to create a node for the linked list
-    public class Node {
+    class Node {
         public int value;
         Node next;
 
-        Node(int value) {
+        public Node(int value) {
             this.value = value;
         }
     }
@@ -32,16 +32,16 @@ public class LinkedList {
         System.out.println();
     }
 
-    public void getHead() {
-        System.out.println("Head: " + head.value);
+    public Node getHead() {
+        return head;
     }
 
-    public void getTail() {
-        System.out.println("Tail: " + tail.value);
+    public Node getTail() {
+        return tail;
     }
 
-    public void getLength() {
-        System.out.println("Length: " + length);
+    public int getLength() {
+        return length;
     }
 
     public void append(int value) {
@@ -175,6 +175,87 @@ public class LinkedList {
         length--;
 
         return temp;
+    }
+
+    public void reverse() {
+        Node temp = head;
+        head = tail;
+        tail = temp;
+
+        Node after = temp.next;
+        Node before = null;
+
+        for(int i=0; i<length; i++){
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+        }
+    }
+
+    public Node findMiddleNode() {
+	    Node slow = head;
+	    Node fast = head;
+ 
+	    while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+	    }
+ 
+	    return slow;
+	}
+
+    public boolean hasLoop() {
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast) return true;
+        }
+
+        return false;
+    }
+
+    public Node findKthFromEnd(int k) {
+        //   +===================================================+
+        //   |               WRITE YOUR CODE HERE                |
+        //   | Description:                                      |
+        //   | - Finds the k-th node from the end of a singly    |
+        //   |   linked list.                                    |
+        //   | - Returns the node at that position or null if    |
+        //   |   `k` is invalid or exceeds the list length.      |
+        //   |                                                   |
+        //   | Behavior:                                         |
+        //   | - Uses two pointers, `fast` and `slow`, starting  |
+        //   |   at the head of the list.                        |
+        //   | - Moves `fast` forward `k` nodes ahead of `slow`. |
+        //   | - Then moves both pointers together until `fast`  |
+        //   |   reaches the end.                                |
+        //   | - At that point, `slow` points to the k-th node   |
+        //   |   from the end and is returned.                   |
+        //   +===================================================+
+        
+        if(k<=0){
+            return null;
+        }
+        
+        Node fast = head;
+        Node slow = head;
+        
+        for(int i=0;i<k;i++){
+            if (fast == null) return null; // k > length safeguard
+
+            fast = fast.next;
+        }
+        
+        while(fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        
+        return slow;
     }
 
 }

@@ -1,5 +1,5 @@
 package datastructures;
-import datastructures.LinkedList.LinkedList;
+import datastructures.LinkedList.Node;
 
 public class Main {
   public static void main(String[] args) {
@@ -50,6 +50,40 @@ public class Main {
     myLinkedList.printList();
 
     myLinkedList.remove(2);
+    myLinkedList.append(1);
+    myLinkedList.append(3);
+    myLinkedList.append(5);
     myLinkedList.printList();
+
+    myLinkedList.reverse();
+    myLinkedList.printList();
+
+    System.out.println("middle node is " + myLinkedList.findMiddleNode().value);
+
+    LinkedList loopList = new LinkedList(1);
+    loopList.append(2);
+    loopList.append(3);
+    loopList.append(4);
+
+    LinkedList.Node middle = loopList.getHead().next.next; // Node 3
+    loopList.getTail().next = middle; // Create a loop for testing
+
+    // loopList.printList();
+    System.out.println("1 -> 2 -> 3 -> 4 -> (loops back to 3)");
+    System.out.println("Expected: true");
+    System.out.println("Actual: " + loopList.hasLoop());
+    System.out.println();
+
+    System.out.println("Finding kth node from end tests");
+    myLinkedList = new LinkedList(10);
+    myLinkedList.append(20);
+    myLinkedList.append(30);
+    myLinkedList.append(40);
+
+    myLinkedList.printList();
+    Node result = myLinkedList.findKthFromEnd(3);
+    System.out.println("Actual: " + (result == null ? "null" : result.value));
+    System.out.println();
+
   }
 }
