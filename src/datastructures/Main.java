@@ -96,5 +96,16 @@ public class Main {
     duplicateList.removeDuplicates();
     duplicateList.printList();
 
+    System.out.println("binary to decimal 1011");
+    myLinkedList = new LinkedList(1);
+    myLinkedList.append(0);
+    myLinkedList.append(1);
+    myLinkedList.append(1);
+
+    System.out.print("List: ");
+    myLinkedList.printList();
+    System.out.println("Result: " + myLinkedList.binaryToDecimal());
+    System.out.println();
+
   }
 }
