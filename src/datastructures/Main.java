@@ -85,5 +85,16 @@ public class Main {
     System.out.println("Actual: " + (result == null ? "null" : result.value));
     System.out.println();
 
+    System.out.println("remove duplicates test");
+    LinkedList duplicateList = new LinkedList(1);
+    duplicateList.append(2);
+    duplicateList.append(1);
+    duplicateList.append(3);
+    duplicateList.append(2);
+
+    duplicateList.printList();
+    duplicateList.removeDuplicates();
+    duplicateList.printList();
+
   }
 }
