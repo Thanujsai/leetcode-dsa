@@ -107,5 +107,19 @@ public class Main {
     System.out.println("Result: " + myLinkedList.binaryToDecimal());
     System.out.println();
 
+    System.out.println("Test 6: Mixed Nodes");
+    myLinkedList = new LinkedList(3);
+    myLinkedList.append(5);
+    myLinkedList.append(8);
+    myLinkedList.append(5);
+    myLinkedList.append(10);
+    myLinkedList.append(2);
+    myLinkedList.append(1);
+    myLinkedList.partitionList(5);
+    System.out.println("Original List: 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1");
+    System.out.println("Expected: 3 -> 2 -> 1 -> 5 -> 8 -> 5 -> 10");
+    myLinkedList.printList();
+    System.out.println();    
+    
   }
 }

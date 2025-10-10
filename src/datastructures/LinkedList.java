@@ -290,6 +290,37 @@ public class LinkedList {
         return num;
     }
 
+    public void partitionList(int x) {
+        if (head == null) return;
+    
+        Node lessHead = new Node(0);     // dummy head for < x
+        Node greaterHead = new Node(0);  // dummy head for >= x
+        Node less = lessHead;
+        Node greater = greaterHead;
+    
+        Node temp = head;
+        while (temp != null) {
+            if (temp.value < x) {
+                less.next = temp;
+                less = less.next;
+            } else {
+                greater.next = temp;
+                greater = greater.next;
+            }
+            temp = temp.next;
+        }
+    
+        // Important: terminate the greater list
+        greater.next = null;
+    
+        // Connect the two lists
+        less.next = greaterHead.next;
+    
+        // Update head
+        head = lessHead.next;
+    }
+
+
 }
 
 
