@@ -1,4 +1,5 @@
-package datastructures;
+
+import datastructures.LinkedList;
 import datastructures.LinkedList.Node;
 
 public class Main {

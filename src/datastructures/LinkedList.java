@@ -7,9 +7,9 @@ public class LinkedList {
     private int length;
 
     //this class is only used to create a node for the linked list
-    class Node {
+    public class Node {
         public int value;
-        Node next;
+        public Node next;
 
         public Node(int value) {
             this.value = value;
