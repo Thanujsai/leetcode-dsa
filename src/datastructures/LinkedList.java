@@ -6,16 +6,6 @@ public class LinkedList {
     private Node tail;
     private int length;
 
-    //this class is only used to create a node for the linked list
-    public class Node {
-        public int value;
-        public Node next;
-
-        public Node(int value) {
-            this.value = value;
-        }
-    }
-
     public LinkedList(int value) {//creates a new node
         Node newNode = new Node(value);
         head = newNode;//head is pointing to the new node

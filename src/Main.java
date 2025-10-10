@@ -1,6 +1,6 @@
 
 import datastructures.LinkedList;
-import datastructures.LinkedList.Node;
+import datastructures.Node;
 
 public class Main {
   public static void main(String[] args) {
@@ -66,7 +66,7 @@ public class Main {
     loopList.append(3);
     loopList.append(4);
 
-    LinkedList.Node middle = loopList.getHead().next.next; // Node 3
+    Node middle = loopList.getHead().next.next; // Node 3
     loopList.getTail().next = middle; // Create a loop for testing
 
     // loopList.printList();
