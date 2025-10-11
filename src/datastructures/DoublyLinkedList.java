@@ -131,4 +131,14 @@ public class DoublyLinkedList {
         return temp;
     }
 
+    public boolean set(int index, int value) {
+        //sets the value of the node at the given index
+        Node temp = get(index);
+        if(temp != null){
+            temp.value = value;
+            return true;
+        }
+        return false;
+    }
+
 }

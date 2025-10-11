@@ -73,5 +73,8 @@ public class Main {
 
     myDoublyLinkedList.printList();
     System.out.println("Element on index 2 is : " + myDoublyLinkedList.get(2).value);
+
+    myDoublyLinkedList.set(2, 99);
+    System.out.println("Element on index 2 after set is : " + myDoublyLinkedList.get(2).value);
   }
 }
