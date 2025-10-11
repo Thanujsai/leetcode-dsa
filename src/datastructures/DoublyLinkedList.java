@@ -6,9 +6,9 @@ public class DoublyLinkedList {
     private int length;
 
     public class Node {
-        int value;
-        Node next;//next pointer
-        Node prev;//previous pointer
+        public int value;
+        public Node next;//next pointer
+        public Node prev;//previous pointer
 
         //double linked list has both next and previous pointers
 
@@ -60,5 +60,23 @@ public class DoublyLinkedList {
         }
         length++;
         
+    }
+
+    public Node removeLast() {
+        if(length == 0) return null;
+
+        Node temp = tail;
+        if(length == 1){
+            head = null;
+            tail = null;
+        }
+        else{
+            tail = tail.prev;
+            tail.next = null;
+            temp.prev = null;
+        }
+        length--;
+
+        return temp;
     }
 }

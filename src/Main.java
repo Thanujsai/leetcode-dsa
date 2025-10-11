@@ -15,6 +15,28 @@ public class Main {
     
     myDoublyLinkedList.append(10);
     myDoublyLinkedList.printList();
+
+    myDoublyLinkedList.append(15);
+    myDoublyLinkedList.append(20);
+
+    System.out.println("before remove last");
+
+    myDoublyLinkedList.printList();
+
+    myDoublyLinkedList.removeLast();
+    System.out.println("after remove last");
+    myDoublyLinkedList.printList();
+
+    System.out.println(myDoublyLinkedList.removeLast().value + " was removed");
+
+    myDoublyLinkedList.printList();
+
+    System.out.println(myDoublyLinkedList.removeLast().value + " was removed");
+
+    myDoublyLinkedList.printList();
     
+    System.out.println(myDoublyLinkedList.removeLast().value + " was removed");
+
+    myDoublyLinkedList.printList();
   }
 }
