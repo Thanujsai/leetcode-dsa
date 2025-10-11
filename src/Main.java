@@ -49,5 +49,21 @@ public class Main {
     System.out.println("prepending 1");
     myDoublyLinkedList.prepend(1);
     myDoublyLinkedList.printList();
+
+    System.out.println("removing first");
+    System.out.println(myDoublyLinkedList.removeFirst().value + " was removed");
+    myDoublyLinkedList.printList();
+
+    System.out.println("removing first");
+    System.out.println(myDoublyLinkedList.removeFirst().value + " was removed");
+    myDoublyLinkedList.printList();
+
+    System.out.println("removing first");
+    System.out.println(myDoublyLinkedList.removeFirst().value + " was removed");
+    myDoublyLinkedList.printList();
+
+    System.out.println("removing first");
+    System.out.println(myDoublyLinkedList.removeFirst() + " was removed");
+    myDoublyLinkedList.printList();
   }
 }
