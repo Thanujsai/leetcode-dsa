@@ -76,5 +76,18 @@ public class Main {
 
     myDoublyLinkedList.set(2, 99);
     System.out.println("Element on index 2 after set is : " + myDoublyLinkedList.get(2).value);
+
+    DoublyLinkedList myDoublyLinkedList2 = new DoublyLinkedList(1);
+    myDoublyLinkedList2.append(2);
+    myDoublyLinkedList2.append(4);
+    myDoublyLinkedList2.append(5);
+
+    System.err.println("before insertion at index 2");
+    myDoublyLinkedList2.printList();
+
+    myDoublyLinkedList2.insert(2,3);
+
+    System.out.println("after insertion at index 2");
+    myDoublyLinkedList2.printList();
   }
 }
