@@ -13,5 +13,8 @@ public class Main {
 
     myDoublyLinkedList.printList();
     
+    myDoublyLinkedList.append(10);
+    myDoublyLinkedList.printList();
+    
   }
 }
