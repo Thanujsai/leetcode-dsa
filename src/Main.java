@@ -1,126 +1,77 @@
 
 import datastructures.LinkedList;
-import datastructures.LinkedList.Node;
+import datastructures.DoublyLinkedList;
+import datastructures.DoublyLinkedList.Node;
 
 public class Main {
   public static void main(String[] args) {
-    LinkedList myLinkedList = new LinkedList(4);
+    DoublyLinkedList myDoublyLinkedList = new DoublyLinkedList(5); 
 
-    myLinkedList.append(5);
+    myDoublyLinkedList.getHead();
+    myDoublyLinkedList.getTail();
+    myDoublyLinkedList.getLength();
 
-    myLinkedList.printList();
-    System.out.println(myLinkedList.removeLast().value);
-    System.out.println(myLinkedList.removeLast().value);
-    System.out.println(myLinkedList.removeLast());
-
-    System.out.println("checking prepend");
-    myLinkedList.prepend(1);
-    myLinkedList.prepend(2);
-    myLinkedList.prepend(3);
-
-    myLinkedList.printList();
-
-    System.out.println(myLinkedList.removeFirst().value);
-    myLinkedList.printList();
-
-    System.out.println(myLinkedList.removeFirst().value);
-    myLinkedList.printList();
-
-    System.out.println(myLinkedList.removeFirst().value);
-    myLinkedList.printList();
-
-    System.out.println(myLinkedList.removeFirst());
-    myLinkedList.printList();
-
-    myLinkedList.append(0);
-    myLinkedList.append(1);
-    myLinkedList.append(2);
-    myLinkedList.printList();
-
-    myLinkedList.set(1, 5);
-    myLinkedList.printList();
-
-    System.out.println("inserting");
-    myLinkedList.insert(0, 0);
-    myLinkedList.printList();
-
-    myLinkedList.insert(2, 3);
-    myLinkedList.printList();
-
-    myLinkedList.remove(2);
-    myLinkedList.printList();
-
-    myLinkedList.remove(2);
-    myLinkedList.append(1);
-    myLinkedList.append(3);
-    myLinkedList.append(5);
-    myLinkedList.printList();
-
-    myLinkedList.reverse();
-    myLinkedList.printList();
-
-    System.out.println("middle node is " + myLinkedList.findMiddleNode().value);
-
-    LinkedList loopList = new LinkedList(1);
-    loopList.append(2);
-    loopList.append(3);
-    loopList.append(4);
-
-    LinkedList.Node middle = loopList.getHead().next.next; // Node 3
-    loopList.getTail().next = middle; // Create a loop for testing
-
-    // loopList.printList();
-    System.out.println("1 -> 2 -> 3 -> 4 -> (loops back to 3)");
-    System.out.println("Expected: true");
-    System.out.println("Actual: " + loopList.hasLoop());
-    System.out.println();
-
-    System.out.println("Finding kth node from end tests");
-    myLinkedList = new LinkedList(10);
-    myLinkedList.append(20);
-    myLinkedList.append(30);
-    myLinkedList.append(40);
-
-    myLinkedList.printList();
-    Node result = myLinkedList.findKthFromEnd(3);
-    System.out.println("Actual: " + (result == null ? "null" : result.value));
-    System.out.println();
-
-    System.out.println("remove duplicates test");
-    LinkedList duplicateList = new LinkedList(1);
-    duplicateList.append(2);
-    duplicateList.append(1);
-    duplicateList.append(3);
-    duplicateList.append(2);
-
-    duplicateList.printList();
-    duplicateList.removeDuplicates();
-    duplicateList.printList();
-
-    System.out.println("binary to decimal 1011");
-    myLinkedList = new LinkedList(1);
-    myLinkedList.append(0);
-    myLinkedList.append(1);
-    myLinkedList.append(1);
-
-    System.out.print("List: ");
-    myLinkedList.printList();
-    System.out.println("Result: " + myLinkedList.binaryToDecimal());
-    System.out.println();
-
-    System.out.println("Test 6: Mixed Nodes");
-    myLinkedList = new LinkedList(3);
-    myLinkedList.append(5);
-    myLinkedList.append(8);
-    myLinkedList.append(5);
-    myLinkedList.append(10);
-    myLinkedList.append(2);
-    myLinkedList.append(1);
-    myLinkedList.partitionList(5);
-    System.out.println("Original List: 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1");
-    System.out.println("Expected: 3 -> 2 -> 1 -> 5 -> 8 -> 5 -> 10");
-    myLinkedList.printList();
-    System.out.println();    
+    myDoublyLinkedList.printList();
     
+    myDoublyLinkedList.append(10);
+    myDoublyLinkedList.printList();
+
+    myDoublyLinkedList.append(15);
+    myDoublyLinkedList.append(20);
+
+    System.out.println("before remove last");
+
+    myDoublyLinkedList.printList();
+
+    myDoublyLinkedList.removeLast();
+    System.out.println("after remove last");
+    myDoublyLinkedList.printList();
+
+    System.out.println(myDoublyLinkedList.removeLast().value + " was removed");
+
+    myDoublyLinkedList.printList();
+
+    System.out.println(myDoublyLinkedList.removeLast().value + " was removed");
+
+    myDoublyLinkedList.printList();
+    
+    System.out.println(myDoublyLinkedList.removeLast().value + " was removed");
+
+    myDoublyLinkedList.printList();
+
+    myDoublyLinkedList.append(3);
+    myDoublyLinkedList.printList();
+
+    System.out.println("prepending 2");
+    myDoublyLinkedList.prepend(2);
+    myDoublyLinkedList.printList();
+
+    System.out.println("prepending 1");
+    myDoublyLinkedList.prepend(1);
+    myDoublyLinkedList.printList();
+
+    System.out.println("removing first");
+    System.out.println(myDoublyLinkedList.removeFirst().value + " was removed");
+    myDoublyLinkedList.printList();
+
+    System.out.println("removing first");
+    System.out.println(myDoublyLinkedList.removeFirst().value + " was removed");
+    myDoublyLinkedList.printList();
+
+    System.out.println("removing first");
+    System.out.println(myDoublyLinkedList.removeFirst().value + " was removed");
+    myDoublyLinkedList.printList();
+
+    System.out.println("removing first");
+    System.out.println(myDoublyLinkedList.removeFirst() + " was removed");
+    myDoublyLinkedList.printList();
+
+    myDoublyLinkedList.append(1);
+    myDoublyLinkedList.append(2);
+    myDoublyLinkedList.append(3);
+    myDoublyLinkedList.append(4);
+
+    myDoublyLinkedList.printList();
+    System.out.println("Element on index 2 is : " + myDoublyLinkedList.get(2).value);
   }
 }

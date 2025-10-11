@@ -9,7 +9,7 @@ public class LinkedList {
     //this class is only used to create a node for the linked list
     public class Node {
         public int value;
-        public Node next;
+        public Node next;//singly linked list has only next pointer
 
         public Node(int value) {
             this.value = value;
