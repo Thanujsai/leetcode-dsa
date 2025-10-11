@@ -65,5 +65,13 @@ public class Main {
     System.out.println("removing first");
     System.out.println(myDoublyLinkedList.removeFirst() + " was removed");
     myDoublyLinkedList.printList();
+
+    myDoublyLinkedList.append(1);
+    myDoublyLinkedList.append(2);
+    myDoublyLinkedList.append(3);
+    myDoublyLinkedList.append(4);
+
+    myDoublyLinkedList.printList();
+    System.out.println("Element on index 2 is : " + myDoublyLinkedList.get(2).value);
   }
 }
