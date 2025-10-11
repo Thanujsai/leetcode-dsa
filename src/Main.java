@@ -38,5 +38,16 @@ public class Main {
     System.out.println(myDoublyLinkedList.removeLast().value + " was removed");
 
     myDoublyLinkedList.printList();
+
+    myDoublyLinkedList.append(3);
+    myDoublyLinkedList.printList();
+
+    System.out.println("prepending 2");
+    myDoublyLinkedList.prepend(2);
+    myDoublyLinkedList.printList();
+
+    System.out.println("prepending 1");
+    myDoublyLinkedList.prepend(1);
+    myDoublyLinkedList.printList();
   }
 }
