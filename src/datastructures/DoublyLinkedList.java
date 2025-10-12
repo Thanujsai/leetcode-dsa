@@ -221,4 +221,54 @@ public class DoublyLinkedList {
         
     }
 
+    public void partitionList(int x) {
+        if (head == null) return;
+    
+        // Dummy nodes for two partitions
+        Node lessDummy = new Node(0);
+        Node greaterDummy = new Node(0);
+    
+        Node lessTail = lessDummy;
+        Node greaterTail = greaterDummy;
+        Node current = head;
+    
+        // Traverse the list
+        while (current != null) {
+            Node nextNode = current.next; // store next node
+            current.prev = current.next = null; // detach current node
+    
+            if (current.value < x) {
+                // Append to the 'less than x' list
+                lessTail.next = current;
+                current.prev = lessTail;
+                lessTail = current;
+            } else {
+                // Append to the 'greater than or equal to x' list
+                greaterTail.next = current;
+                current.prev = greaterTail;
+                greaterTail = current;
+            }
+    
+            current = nextNode;
+        }
+    
+        // Join the two lists
+        if (lessDummy.next != null) {
+            head = lessDummy.next;
+            lessTail.next = greaterDummy.next;
+            if (greaterDummy.next != null) {
+                greaterDummy.next.prev = lessTail;
+            }
+        } else {
+            // If there are no nodes less than x
+            head = greaterDummy.next;
+        }
+    
+        // Ensure head.prev is null
+        if (head != null) {
+            head.prev = null;
+        }
+    }
+
+
 }

@@ -170,6 +170,36 @@ public class Main {
     printForward(dll);
     printBackward(dll);
     System.out.println();
+
+    // Test 6: Mixed nodes
+        System.out.println("Test 6: Mixed Nodes");
+        dll = new DoublyLinkedList(3);
+        dll.append(5);
+        dll.append(8);
+        dll.append(5);
+        dll.append(10);
+        dll.append(2);
+        dll.append(1);
+        dll.partitionList(5);
+        System.out.println("Expected Forward: 3 <-> 2 <-> 1 <-> 5 <-> 8 <-> 5 <-> 10");
+        System.out.println("Expected Backward: 10 <-> 5 <-> 8 <-> 5 <-> 1 <-> 2 <-> 3");
+        printForward(dll);
+        printBackward(dll);
+        System.out.println();
+
+        // Test 7: Duplicates around pivot
+        System.out.println("Test 7: Duplicates Around Pivot");
+        dll = new DoublyLinkedList(5);
+        dll.append(1);
+        dll.append(5);
+        dll.append(0);
+        dll.append(5);
+        dll.partitionList(5);
+        System.out.println("Expected Forward: 1 <-> 0 <-> 5 <-> 5 <-> 5");
+        System.out.println("Expected Backward: 5 <-> 5 <-> 5 <-> 0 <-> 1");
+        printForward(dll);
+        printBackward(dll);
+        System.out.println();
   }
 
   // Helper to print forward traversal
