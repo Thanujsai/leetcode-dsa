@@ -89,5 +89,17 @@ public class Main {
 
     System.out.println("after insertion at index 2");
     myDoublyLinkedList2.printList();
+
+    myDoublyLinkedList2.remove(2);
+    System.out.println("after removal at index 2");
+    myDoublyLinkedList2.printList();
+
+    myDoublyLinkedList2.remove(0);
+    System.out.println("after removal at index 0");
+    myDoublyLinkedList2.printList();
+
+    myDoublyLinkedList2.remove(2);
+    System.out.println("after removal at index 2");
+    myDoublyLinkedList2.printList();
   }
 }
