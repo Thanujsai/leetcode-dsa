@@ -12,6 +12,17 @@ public class Main {
     stack.getHeight();
 
     stack.printStack();
+    System.out.println("---PUSHING---");
+
+    stack.push(20);
+    stack.push(30);
+
+    stack.printStack();
+
+    System.out.println("---POPPING---");
+    System.out.println(stack.pop().value);
+    System.out.println(stack.pop().value);
+    System.out.println(stack.pop().value);
   }
 
 }
