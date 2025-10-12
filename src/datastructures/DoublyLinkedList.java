@@ -33,12 +33,12 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
-    public void getHead() {
-        System.out.println("Head: " + head.value);
+    public Node getHead() {
+        return head;
     }
 
-    public void getTail() {
-        System.out.println("Tail: " + tail.value);
+    public Node getTail() {
+        return tail;
     }
 
     public void getLength() {
@@ -180,6 +180,45 @@ public class DoublyLinkedList {
         temp.prev = null;
         length--;
         return temp;
+    }
+
+    public boolean isPalindrome(){
+        if(length == 1) return true;
+        
+        Node tempHead = head;
+        Node tempTail = tail;
+        for(int i =0;i< length/2;i++){
+            if(tempHead.value == tempTail.value){
+                tempHead = tempHead.next;
+                tempTail = tempTail.prev;
+                continue;
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void reverse(){
+        if(length == 0 || length == 1) return;
+        
+        Node current = head;
+        Node temp = null;
+
+        // Swap next and prev for all nodes
+        while (current != null) {
+            temp = current.prev;
+            current.prev = current.next;
+            current.next = temp;
+            current = current.prev;  // move to next node (which is prev after swapping)
+        }
+
+        temp = head;
+        head = tail;
+        tail = temp;
+
+        
     }
 
 }
