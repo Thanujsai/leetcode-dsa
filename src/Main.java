@@ -33,6 +33,11 @@ public class Main {
     queue.getFirst();
     queue.getLast();
     queue.getLength();
+
+    queue.enqueue(20);
+    queue.enqueue(30);
+
+    queue.printQueue();
   }
 
 }
