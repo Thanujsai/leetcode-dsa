@@ -38,6 +38,19 @@ public class Main {
     queue.enqueue(30);
 
     queue.printQueue();
+
+    System.out.println("---DEQUEUE---");
+    queue.dequeue();
+    queue.printQueue();
+
+    queue.dequeue();
+    queue.printQueue();
+
+    queue.dequeue();
+    queue.printQueue();
+
+    queue.dequeue();
+    queue.printQueue();
   }
 
 }
