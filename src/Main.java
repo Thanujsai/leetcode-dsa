@@ -1,6 +1,7 @@
 
 import datastructures.LinkedList;
 import datastructures.Stack;
+import datastructures.Queue;
 import datastructures.DoublyLinkedList;
 import datastructures.DoublyLinkedList.Node;
 
@@ -23,6 +24,15 @@ public class Main {
     System.out.println(stack.pop().value);
     System.out.println(stack.pop().value);
     System.out.println(stack.pop().value);
+
+    System.out.println("---QUEUE---");
+
+    Queue queue = new Queue(10);
+
+    queue.printQueue();
+    queue.getFirst();
+    queue.getLast();
+    queue.getLength();
   }
 
 }
