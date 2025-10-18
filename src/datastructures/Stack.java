@@ -19,6 +19,11 @@ public class Stack {
         height = 1;
     }
 
+    public Stack() {
+        top = null;
+        height = 0;
+    }
+
     public void printStack() {
         Node temp = top;
         while (temp != null) {
@@ -54,5 +59,24 @@ public class Stack {
         height--;
 
         return temp;
+    }
+
+        
+    public boolean isEmpty() {
+        return height == 0;
+    }
+
+    public static boolean isBalancedParentheses(String parentheses) {
+        Stack stack = new Stack();
+        for (char p : parentheses.toCharArray()) {
+            if (p == '(') {
+                stack.push(p);
+            } else if (p == ')') {
+                if (stack.isEmpty() || stack.pop().value != '(') {
+                    return false;
+                }
+            }
+        }
+        return stack.isEmpty();
     }
 }

@@ -51,6 +51,41 @@ public class Main {
 
     queue.dequeue();
     queue.printQueue();
+
+    // Test 1
+    System.out.println("Test 1: Empty String");
+    System.out.println("Input: ''");
+    System.out.println("Expected: true");
+    System.out.println("Actual: " + Stack.isBalancedParentheses(""));
+    System.out.println();
+
+    // Test 2
+    System.out.println("Test 2: Single Pair");
+    System.out.println("Input: '()'");
+    System.out.println("Expected: true");
+    System.out.println("Actual: " + Stack.isBalancedParentheses("()"));
+    System.out.println();
+
+    // Test 3
+    System.out.println("Test 3: Missing Open");
+    System.out.println("Input: ')'");
+    System.out.println("Expected: false");
+    System.out.println("Actual: " + Stack.isBalancedParentheses(")"));
+    System.out.println();
+
+    // Test 4
+    System.out.println("Test 4: Missing Close");
+    System.out.println("Input: '('");
+    System.out.println("Expected: false");
+    System.out.println("Actual: " + Stack.isBalancedParentheses("("));
+    System.out.println();
+
+    // Test 5
+    System.out.println("Test 5: Multiple Pairs");
+    System.out.println("Input: '()()'");
+    System.out.println("Expected: true");
+    System.out.println("Actual: " + Stack.isBalancedParentheses("()()"));
+    System.out.println();
   }
 
 }
