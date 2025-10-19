@@ -11,18 +11,16 @@ public class Main {
   public static void main(String[] args) {
     HashTable ht = new HashTable();
     
+    ht.set("paint", 20);
+    ht.set("bolts", 40);
     ht.set("nails", 100);
     ht.set("tile", 50);
     ht.set("lumber", 80);
-    ht.set("bolts", 200);
-    ht.set("screws", 140);
 
     ht.printTable();
 
-    System.out.println(ht.get("lumber"));
-    System.out.println(ht.get("nails"));
-    System.out.println(ht.get("bolts"));
-    System.out.println(ht.get("thanuj"));
+    System.out.println("keys");
+    System.out.println(ht.keys());
   }
 
 }
