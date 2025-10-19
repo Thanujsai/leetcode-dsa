@@ -18,6 +18,11 @@ public class Main {
     ht.set("screws", 140);
 
     ht.printTable();
+
+    System.out.println(ht.get("lumber"));
+    System.out.println(ht.get("nails"));
+    System.out.println(ht.get("bolts"));
+    System.out.println(ht.get("thanuj"));
   }
 
 }
