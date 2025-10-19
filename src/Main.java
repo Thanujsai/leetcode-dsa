@@ -20,6 +20,9 @@ public class Main {
 
     bst.insert(27);
     System.out.println("expected location of 27 : bst.root.left.right = " + bst.root.left.right.value);
+
+    System.out.println("BST contains 27: " + bst.contains(27));
+    System.out.println("BST contains 17: " + bst.contains(17));
   }
 
 }
