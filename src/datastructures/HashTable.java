@@ -1,6 +1,7 @@
 package datastructures;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class HashTable {
     private int size = 7;
@@ -11,7 +12,7 @@ public class HashTable {
     }
 
     public class Node {
-        String key;
+        String key;//node stores both key and value
         int value;
         Node next;
 
@@ -32,9 +33,9 @@ public class HashTable {
         }
     }
 
-    private int hash(String key) {
+    private int hash(String key) {//this function generates an index based on the key, then we use that index to store the value in the dataMap array
         int hash = 0;
-        char[] keyChars = key.toCharArray();
+        char[] keyChars = key.toCharArray();//this is not the length of the array, but the characters in the string of the key, like if key is "paint", keyChars will be ['p','a','i','n','t'], size is 5
         for(int i=0; i<keyChars.length; i++) {
             int asciiValue = keyChars[i];
             hash = (hash + asciiValue * 23) % dataMap.length;//using a prime number 23 so that the output is more unique, modulo length of dataMap because we want it to fit in the array
@@ -77,4 +78,11 @@ public class HashTable {
         }
         return allKeys;
     }
+    //getting and setting values in hashtables is on average O(1) time complexity
+
+    //comparing 2 arrays generally take O(n^2) time complexity, since we have to loop through each array and compare each element
+    //but using hashtables we can reduce it to O(n) time complexity
+    
+    //this is because we can store the elements of one array in the hashtable in O(n) time, then we can loop through the second array and check if each element exists in the hashtable in O(1) time on average
+    //itemInCommon in main class
 }
