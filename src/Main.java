@@ -34,6 +34,9 @@ public class Main {
     ht.set("tile", 50);
     ht.set("lumber", 80);
 
+    System.out.println("get paint: " + ht.get("paint"));
+    System.out.println("get tile: " + ht.get("tile"));
+
     ht.printTable();
 
     System.out.println("keys");

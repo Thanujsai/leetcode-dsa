@@ -3,6 +3,8 @@ package datastructures;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//Hashtable is an array of Node pointers
+//each node itself stores key, value and pointer to next node (for handling collisions using chaining)
 public class HashTable {
     private int size = 7;
     private Node[] dataMap;//array that contains pointers to nodes
@@ -14,7 +16,7 @@ public class HashTable {
     public class Node {
         String key;//node stores both key and value
         int value;
-        Node next;
+        Node next;//for handling collisions using chaining
 
         public Node(String key, int value) {
             this.key = key;
@@ -61,7 +63,7 @@ public class HashTable {
         int index = hash(key);
         Node temp = dataMap[index];
         while(temp != null) {
-            if(temp.key == key) return temp.value;
+            if(temp.key.equals(key)) return temp.value;
             temp = temp.next;
         }
         return 0;//indicates not found
