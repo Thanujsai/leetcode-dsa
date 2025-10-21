@@ -49,6 +49,22 @@ public class Main {
     return duplicates;
   }
 
+  public static char firstNonRepeatingCharacter(String str){
+    HashMap<Character, Integer> charCountMap = new HashMap<>();
+
+    for(char c: str.toCharArray()){
+      charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);
+    }
+
+    for(char c: str.toCharArray()){
+      if(charCountMap.get(c) == 1){
+        return c;
+      }
+    }
+
+    return 0;
+  }
+
   public static void main(String[] args) {
     HashTable ht = new HashTable();
 
@@ -85,6 +101,23 @@ public class Main {
     System.out.println("Expected: [5]");
     System.out.println("Actual: " + findDuplicates(nums4));
     System.out.println();
+
+    String testStr = "aabbcddeff";
+    char result = firstNonRepeatingCharacter(testStr);
+    System.out.println("result : "  + result);
+    if (result !=  0) {
+      System.out.println("First non-repeating character in \"" + testStr + "\": " + result);
+    } else {
+      System.out.println("All characters are repeating in \"" + testStr + "\"");
+    }
+
+    String testStr2 = "aabbcc";
+    char result2 = firstNonRepeatingCharacter(testStr2);
+    if (result2 != 0) {
+      System.out.println("First non-repeating character in \"" + testStr2 + "\": " + result2);
+    } else {
+      System.out.println("All characters are repeating in \"" + testStr2 + "\"");
   }
+}
 
 }
