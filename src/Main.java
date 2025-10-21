@@ -3,7 +3,9 @@ import datastructures.LinkedList;
 import datastructures.Stack;
 import datastructures.Queue;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import datastructures.BinarySearchTree;
 import datastructures.DoublyLinkedList;
@@ -14,20 +16,42 @@ public class Main {
 
   public static boolean itemInCommon(int[] array1, int[] array2) {
     HashMap<Integer, Boolean> hm = new HashMap<>();
-    for(int item : array1) {
+    for (int item : array1) {
       hm.put(item, true);// value doesn't matter, add the key i.e. the items of array1
     }
-    for(int item : array2) {
-      if(hm.get(item) != null) {// if item from array2 is found in hashmap, then there is a common item, since all keys in hashmap are from array1 and values are true
+    for (int item : array2) {
+      if (hm.get(item) != null) {// if item from array2 is found in hashmap, then there is a common item, since
+                                 // all keys in hashmap are from array1 and values are true
         return true;
       }
     }
     return false;
   }
 
+  public static List<Integer> findDuplicates(int[] a) {
+    List<Integer> duplicates = new ArrayList<>();
+    HashMap<Integer, Integer> hm = new HashMap<>();
+
+    for (int item : a) {
+      if (hm.get(item) != null) {
+        hm.put(item, hm.get(item) + 1);
+      } else {
+        hm.put(item, 1);
+      }
+    }
+
+    for (int item : hm.keySet()) {
+      if (hm.get(item) > 1) {
+        duplicates.add(item);
+      }
+    }
+
+    return duplicates;
+  }
+
   public static void main(String[] args) {
     HashTable ht = new HashTable();
-    
+
     ht.set("paint", 20);
     ht.set("bolts", 40);
     ht.set("nails", 100);
@@ -42,11 +66,25 @@ public class Main {
     System.out.println("keys");
     System.out.println(ht.keys());
 
-    int[] array1 = {1,3, 5};
-    int[] array2 = {2,4,6};
+    int[] array1 = { 1, 3, 5 };
+    int[] array2 = { 2, 4, 6 };
 
     System.out.println("item in common : ");
     System.out.println(itemInCommon(array1, array2));
+
+    // Test 3: Multiple duplicates
+    System.out.println("Test 3: Multiple Duplicates");
+    int[] nums3 = { 1, 2, 2, 3, 3, 4 };
+    System.out.println("Expected: [2, 3] (order may vary)");
+    System.out.println("Actual: " + findDuplicates(nums3));
+    System.out.println();
+
+    // Test 4: All elements are duplicates
+    System.out.println("Test 4: All Elements Duplicates");
+    int[] nums4 = { 5, 5, 5, 5 };
+    System.out.println("Expected: [5]");
+    System.out.println("Actual: " + findDuplicates(nums4));
+    System.out.println();
   }
 
 }
