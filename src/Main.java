@@ -51,8 +51,7 @@ public class Main {
     for (int i = 0; i < nums.length; i++) {
       if (hm.containsKey(target - nums[i])) {
         result = new int[] { hm.get(target - nums[i]), i };
-      }
-      else{
+      } else {
         hm.put(nums[i], i);
       }
     }
@@ -60,8 +59,24 @@ public class Main {
     return result;
   }
 
+  public static int[] subarraySum(int[] nums, int target) {
+    HashMap<Integer, Integer> hm = new HashMap<>();
+    hm.put(0, -1); // Handle case where subarray starts at index 0
+
+    int cumulativeSum = 0;
+    for (int i = 0; i < nums.length; i++) {
+      cumulativeSum = cumulativeSum + nums[i];
+      if (hm.containsKey(cumulativeSum - target)) {
+        return new int[] { hm.get(cumulativeSum - target) + 1, i };
+      }
+      hm.put(cumulativeSum, i);
+    }
+
+    return new int[] {};
+  }
+
   private static String formatResult(int[] result) {
-      return result.length == 0 ? "[]" : Arrays.toString(result);
+    return result.length == 0 ? "[]" : Arrays.toString(result);
   }
 
   public static List<Integer> findDuplicates(int[] a) {
@@ -183,6 +198,38 @@ public class Main {
     int target2 = 5;
     System.out.println("Expected: Any valid pair summing to 5");
     System.out.println("Actual: " + formatResult(twoSum(nums2, target2)));
+    System.out.println();
+
+    // Test 2: Multiple possible subarrays
+    System.out.println("Test 2: Multiple Possible Subarrays");
+    int[] numss2 = { 1, 2, 2, 3, 1 };
+    int targett2 = 5;
+    System.out.println("Expected: Any valid subarray summing to 5");
+    System.out.println("Actual: " + formatResult(subarraySum(numss2, targett2)));
+    System.out.println();
+
+    // Test 3: Includes negative numbers
+    System.out.println("Test 3: Handles Negative Numbers");
+    int[] numss3 = { 3, 4, -7, 5, 1 };
+    int target3 = 5;
+    System.out.println("Expected: Any valid subarray summing to 5");
+    System.out.println("Actual: " + formatResult(subarraySum(numss3, target3)));
+    System.out.println();
+
+    // Test 4: Entire array is the subarray
+    System.out.println("Test 4: Entire Array Matches");
+    int[] numss4 = { 2, 2, 2, 2 };
+    int target4 = 8;
+    System.out.println("Expected: Indices for full array [0,3]");
+    System.out.println("Actual: " + formatResult(subarraySum(numss4, target4)));
+    System.out.println();
+
+    // Test 5: No subarray found
+    System.out.println("Test 5: No Subarray Found");
+    int[] nums5 = { 1, 1, 1 };
+    int target5 = 10;
+    System.out.println("Expected: []");
+    System.out.println("Actual: " + formatResult(subarraySum(nums5, target5)));
     System.out.println();
 
   }
