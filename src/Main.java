@@ -4,6 +4,7 @@ import datastructures.Stack;
 import datastructures.Queue;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -41,6 +42,26 @@ public class Main {
       anagramMap.get(sortedStr).add(str);
     }
     return new ArrayList<>(anagramMap.values());
+  }
+
+  public static int[] twoSum(int[] nums, int target) {
+    HashMap<Integer, Integer> hm = new HashMap<>();
+
+    int[] result = new int[] {};
+    for (int i = 0; i < nums.length; i++) {
+      if (hm.containsKey(target - nums[i])) {
+        result = new int[] { hm.get(target - nums[i]), i };
+      }
+      else{
+        hm.put(nums[i], i);
+      }
+    }
+
+    return result;
+  }
+
+  private static String formatResult(int[] result) {
+      return result.length == 0 ? "[]" : Arrays.toString(result);
   }
 
   public static List<Integer> findDuplicates(int[] a) {
@@ -147,6 +168,23 @@ public class Main {
     System.out.println("Expected: [[bat, bat, tab]]");
     System.out.println("Actual: " + groupAnagrams(input4));
     System.out.println();
+
+    // Test 1: Basic pair
+    System.out.println("Test 1: Basic Pair");
+    int[] nums1 = { 2, 7, 11, 15 };
+    int target1 = 9;
+    System.out.println("Expected: Indices of 2 and 7 (any valid order)");
+    System.out.println("Actual: " + formatResult(twoSum(nums1, target1)));
+    System.out.println();
+
+    // Test 2: Multiple pairs exist
+    System.out.println("Test 2: Multiple Pairs");
+    int[] nums2 = { 1, 3, 2, 4, 6 };
+    int target2 = 5;
+    System.out.println("Expected: Any valid pair summing to 5");
+    System.out.println("Actual: " + formatResult(twoSum(nums2, target2)));
+    System.out.println();
+
   }
 
 }
