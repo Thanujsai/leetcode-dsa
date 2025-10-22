@@ -28,6 +28,21 @@ public class Main {
     return false;
   }
 
+  public static List<List<String>> groupAnagrams(String[] strs) {
+    HashMap<String, List<String>> anagramMap = new HashMap<>();
+    for (String str : strs) {
+      char[] charArray = str.toCharArray();
+      java.util.Arrays.sort(charArray);
+      String sortedStr = new String(charArray);
+
+      if (!anagramMap.containsKey(sortedStr)) {
+        anagramMap.put(sortedStr, new ArrayList<>());
+      }
+      anagramMap.get(sortedStr).add(str);
+    }
+    return new ArrayList<>(anagramMap.values());
+  }
+
   public static List<Integer> findDuplicates(int[] a) {
     List<Integer> duplicates = new ArrayList<>();
     HashMap<Integer, Integer> hm = new HashMap<>();
@@ -49,15 +64,15 @@ public class Main {
     return duplicates;
   }
 
-  public static char firstNonRepeatingCharacter(String str){
+  public static char firstNonRepeatingCharacter(String str) {
     HashMap<Character, Integer> charCountMap = new HashMap<>();
 
-    for(char c: str.toCharArray()){
+    for (char c : str.toCharArray()) {
       charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);
     }
 
-    for(char c: str.toCharArray()){
-      if(charCountMap.get(c) == 1){
+    for (char c : str.toCharArray()) {
+      if (charCountMap.get(c) == 1) {
         return c;
       }
     }
@@ -104,8 +119,8 @@ public class Main {
 
     String testStr = "aabbcddeff";
     char result = firstNonRepeatingCharacter(testStr);
-    System.out.println("result : "  + result);
-    if (result !=  0) {
+    System.out.println("result : " + result);
+    if (result != 0) {
       System.out.println("First non-repeating character in \"" + testStr + "\": " + result);
     } else {
       System.out.println("All characters are repeating in \"" + testStr + "\"");
@@ -117,7 +132,21 @@ public class Main {
       System.out.println("First non-repeating character in \"" + testStr2 + "\": " + result2);
     } else {
       System.out.println("All characters are repeating in \"" + testStr2 + "\"");
+    }
+
+    // Test 3: Multiple groups
+    System.out.println("Test 3: Multiple Groups");
+    String[] input3 = { "eat", "tea", "tan", "ate", "nat", "bat" };
+    System.out.println("Expected: [[eat, tea, ate], [tan, nat], [bat]]");
+    System.out.println("Actual: " + groupAnagrams(input3));
+    System.out.println();
+
+    // Test 4: Duplicate words
+    System.out.println("Test 4: Duplicate Words");
+    String[] input4 = { "bat", "tab", "bat" };
+    System.out.println("Expected: [[bat, bat, tab]]");
+    System.out.println("Actual: " + groupAnagrams(input4));
+    System.out.println();
   }
-}
 
 }
