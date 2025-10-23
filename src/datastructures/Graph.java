@@ -24,6 +24,10 @@ public class Graph {
             adjList.get(vertex2).add(vertex1);
 
             return true;
+
+            //graph is a hashmap where each key is a vertex and the value is an arraylist of vertices that are connected to that vertex
+            //so to add an edge, say between C & D, we need to add D to the arraylist of C and C to the arraylist of D
+            //adjList.get(vertex1) returns the list of nodes that vertex1 is connected to, then we add vertex2 to that list
         }
         return false;
     }
