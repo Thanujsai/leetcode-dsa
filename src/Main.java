@@ -25,6 +25,12 @@ public class Main {
     graph.addVertex("A");
     graph.printGraph();
 
+    graph.addVertex("B");
+    graph.printGraph();
+
+    graph.addEdge("A", "B");
+    graph.printGraph();
+
   }
 
 }

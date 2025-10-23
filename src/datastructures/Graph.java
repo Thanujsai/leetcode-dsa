@@ -9,6 +9,7 @@ public class Graph {
     public void printGraph() {
         System.out.println(adjList);
     }
+
     public boolean addVertex(String vertex) {
         if(adjList.get(vertex) == null) {
             adjList.put(vertex, new ArrayList<String>());//adding the vertex with an empty arraylist
@@ -16,4 +17,35 @@ public class Graph {
         }
         return false;
     }
+
+    public boolean addEdge(String vertex1, String vertex2) {
+        if(adjList.get(vertex1) != null && adjList.get(vertex2) != null) {//both vertices exist
+            adjList.get(vertex1).add(vertex2);//adding an edge from vertex1 to vertex2, since this is an undirected graph, we also need to add an edge from vertex2 to vertex1
+            adjList.get(vertex2).add(vertex1);
+
+            return true;
+        }
+        return false;
+    }
 }
+
+/*
+ * this is how a graph looks like:
+ * {
+ *   A: [B, C],
+ *   B: [A, D],
+ *   C: [A],
+ *   D: [B]
+ * }
+ * like a hashmap where each key is a vertex and the value is an arraylist of vertices that are connected to that vertex
+ * 
+ * so to add an edge, say between C & D, we need to add D to the arraylist of C and C to the arraylist of D
+ * 
+ * so it becomes like below
+ * {
+ *   A: [B, C],
+ *  B: [A, D],
+ *  C: [A, D],
+ * D: [B, C]
+ * }
+ */
