@@ -5,8 +5,11 @@ import datastructures.Queue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import datastructures.BinarySearchTree;
 import datastructures.DoublyLinkedList;
@@ -114,6 +117,17 @@ public class Main {
     }
 
     return 0;
+  }
+
+  public static List<Integer> removeDuplicates(List<Integer> myList) {
+    Set<Integer> uniqueSet = new HashSet<>(myList);
+    return new ArrayList<>(uniqueSet);
+  }
+
+  private static String formatResult(List<Integer> list) {
+    List<Integer> sorted = new ArrayList<>(list);
+    Collections.sort(sorted); // for consistent print order
+    return sorted.toString();
   }
 
   public static void main(String[] args) {
@@ -230,6 +244,27 @@ public class Main {
     int target5 = 10;
     System.out.println("Expected: []");
     System.out.println("Actual: " + formatResult(subarraySum(nums5, target5)));
+    System.out.println();
+
+    // Test 1: Duplicates removed
+    System.out.println("Test 1: Duplicates Removed");
+    List<Integer> list1 = Arrays.asList(1, 2, 2, 3, 3, 4);
+    System.out.println("Expected: [1, 2, 3, 4]");
+    System.out.println("Actual: " + formatResult(removeDuplicates(list1)));
+    System.out.println();
+
+    // Test 2: No duplicates
+    System.out.println("Test 2: No Duplicates");
+    List<Integer> list2 = Arrays.asList(5, 6, 7);
+    System.out.println("Expected: [5, 6, 7]");
+    System.out.println("Actual: " + formatResult(removeDuplicates(list2)));
+    System.out.println();
+
+    // Test 3: All duplicates
+    System.out.println("Test 3: All Duplicates");
+    List<Integer> list3 = Arrays.asList(8, 8, 8, 8);
+    System.out.println("Expected: [8]");
+    System.out.println("Actual: " + formatResult(removeDuplicates(list3)));
     System.out.println();
 
   }
