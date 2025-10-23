@@ -147,6 +147,32 @@ public class Main {
     return result;
   }
 
+  public static int longestConsecutiveSequence(int[] nums) {
+    Set<Integer> set = new HashSet<>();
+    int currentStreak = 1;
+    int longestStreak = 0;
+    for (int num : nums) {
+      set.add(num);
+    }
+    for (int i = 0; i < set.size(); i++) {
+      int currentNum = nums[i];
+      currentStreak = 1;
+      if (set.contains(currentNum - 1)) {
+        continue; // not the start of a sequence
+      } else {
+        while (set.contains(currentNum + currentStreak)) {
+          currentStreak++;
+        }
+      }
+
+      if(currentStreak > longestStreak) {
+        longestStreak = currentStreak;
+      }
+    }
+
+    return longestStreak;
+  }
+
   public static List<Integer> removeDuplicates(List<Integer> myList) {
     Set<Integer> uniqueSet = new HashSet<>(myList);
     return new ArrayList<>(uniqueSet);
@@ -384,6 +410,41 @@ public class Main {
     int targett5 = 5;
     System.out.println("Expected: []");
     System.out.println("Actual: " + formatPairs(findPairs(arr1e, arr2e, targett5)));
+    System.out.println();
+
+    // Test 1: Typical case
+    System.out.println("Test 1: Typical Sequence");
+    int[] longestConsecutiveSequencenums1 = { 100, 4, 200, 1, 3, 2 };
+    System.out.println("Expected: 4 (sequence 1-4)");
+    System.out.println("Actual: " + longestConsecutiveSequence(longestConsecutiveSequencenums1));
+    System.out.println();
+
+    // Test 2: No consecutive numbers
+    System.out.println("Test 2: No Consecutive Numbers");
+    int[] longestConsecutiveSequencenums2 = { 10, 30, 50 };
+    System.out.println("Expected: 1 (each stands alone)");
+    System.out.println("Actual: " + longestConsecutiveSequence(longestConsecutiveSequencenums2));
+    System.out.println();
+
+    // Test 3: All numbers consecutive
+    System.out.println("Test 3: All Numbers Consecutive");
+    int[] longestConsecutiveSequencenums3 = { 5, 6, 7, 8, 9 };
+    System.out.println("Expected: 5 (sequence 5-9)");
+    System.out.println("Actual: " + longestConsecutiveSequence(longestConsecutiveSequencenums3));
+    System.out.println();
+
+    // Test 4: Includes negatives
+    System.out.println("Test 4: Handles Negatives");
+    int[] longestConsecutiveSequencenums4 = { -1, -2, -3, 0, 1 };
+    System.out.println("Expected: 5 (sequence -3 to 1)");
+    System.out.println("Actual: " + longestConsecutiveSequence(longestConsecutiveSequencenums4));
+    System.out.println();
+
+    // Test 5: Empty array
+    System.out.println("Test 5: Empty Array");
+    int[] longestConsecutiveSequencenums5 = {};
+    System.out.println("Expected: 0");
+    System.out.println("Actual: " + longestConsecutiveSequence(longestConsecutiveSequencenums5));
     System.out.println();
 
   }
