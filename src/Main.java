@@ -119,6 +119,34 @@ public class Main {
     return 0;
   }
 
+  public static boolean hasUniqueChars(String string) {
+    Set<Character> set = new HashSet<>();
+    for (char ch : string.toCharArray()) {
+      if (set.contains(ch)) {
+        return false;
+      }
+      set.add(ch);
+    }
+
+    return true;
+  }
+
+  public static List<int[]> findPairs(int[] arr1, int[] arr2, int target) {
+    Set<Integer> set = new HashSet<>();
+    List<int[]> result = new ArrayList<>();
+    for (int num : arr1) {
+      set.add(num);
+    }
+    for (int num : arr2) {
+      int complement = target - num;
+      if (set.contains(complement)) {
+        result.add(new int[] { complement, num });
+      }
+    }
+
+    return result;
+  }
+
   public static List<Integer> removeDuplicates(List<Integer> myList) {
     Set<Integer> uniqueSet = new HashSet<>(myList);
     return new ArrayList<>(uniqueSet);
@@ -128,6 +156,14 @@ public class Main {
     List<Integer> sorted = new ArrayList<>(list);
     Collections.sort(sorted); // for consistent print order
     return sorted.toString();
+  }
+
+  private static String formatPairs(List<int[]> pairs) {
+    List<String> formatted = new ArrayList<>();
+    for (int[] pair : pairs) {
+      formatted.add(Arrays.toString(pair));
+    }
+    return formatted.toString();
   }
 
   public static void main(String[] args) {
@@ -265,6 +301,89 @@ public class Main {
     List<Integer> list3 = Arrays.asList(8, 8, 8, 8);
     System.out.println("Expected: [8]");
     System.out.println("Actual: " + formatResult(removeDuplicates(list3)));
+    System.out.println();
+
+    // Test 1: All unique characters
+    System.out.println("Test 1: All Unique Characters");
+    String input1 = "abcdef";
+    System.out.println("Expected: true");
+    System.out.println("Actual: " + hasUniqueChars(input1));
+    System.out.println();
+
+    // Test 2: Repeating characters
+    System.out.println("Test 2: Repeating Characters");
+    String input2 = "hello";
+    System.out.println("Expected: false");
+    System.out.println("Actual: " + hasUniqueChars(input2));
+    System.out.println();
+
+    // Test 3: Empty string
+    System.out.println("Test 3: Empty String");
+    String inputt3 = "";
+    System.out.println("Expected: true");
+    System.out.println("Actual: " + hasUniqueChars(inputt3));
+    System.out.println();
+
+    // Test 4: Single character
+    System.out.println("Test 4: Single Character");
+    String inputt4 = "x";
+    System.out.println("Expected: true");
+    System.out.println("Actual: " + hasUniqueChars(inputt4));
+    System.out.println();
+
+    // Test 5: Case sensitivity and symbols
+    System.out.println("Test 5: Case Sensitivity and Symbols");
+    String input5 = "AbC!@";
+    String input6 = "AaA";
+    System.out.println("Expected (AbC!@): true");
+    System.out.println("Actual: " + hasUniqueChars(input5));
+    System.out.println("Expected (AaA): false");
+    System.out.println("Actual: " + hasUniqueChars(input6));
+    System.out.println();
+
+    // Test 1: Single pair (actually multiple results summing to same target)
+    System.out.println("Test 1: Find Pairs Summing to Target");
+    int[] arr1a = { 1, 2, 3 };
+    int[] arr2a = { 4, 5, 6 };
+    int targett1 = 7;
+    System.out.println("Expected: Pairs like [1,6], [2,5], [3,4]");
+    System.out.println("Actual: " + formatPairs(findPairs(arr1a, arr2a, targett1)));
+    System.out.println();
+
+    // Test 2: No pairs exist
+    System.out.println("Test 2: No Pairs");
+    int[] arr1b = { 1, 2 };
+    int[] arr2b = { 7, 8 };
+    int ttargett2 = 20;
+    System.out.println("Expected: []");
+    System.out.println("Actual: " + formatPairs(findPairs(arr1b, arr2b, ttargett2)));
+    System.out.println();
+
+    // Test 3: Multiple valid pairs
+    System.out.println("Test 3: Multiple Valid Pairs");
+    int[] arr1c = { 2, 4, 6 };
+    int[] arr2c = { 1, 3, 5 };
+    int targett3 = 7;
+    System.out.println("Expected: Pairs like [2,5], [4,3], [6,1]");
+    System.out.println("Actual: " + formatPairs(findPairs(arr1c, arr2c, targett3)));
+    System.out.println();
+
+    // Test 4: Handles negatives
+    System.out.println("Test 4: Handles Negative Numbers");
+    int[] arr1d = { -1, -2, 3 };
+    int[] arr2d = { 1, 4, -3 };
+    int targett4 = 1;
+    System.out.println("Expected: Pairs that sum to 1 (any valid ones)");
+    System.out.println("Actual: " + formatPairs(findPairs(arr1d, arr2d, targett4)));
+    System.out.println();
+
+    // Test 5: Both arrays empty
+    System.out.println("Test 5: Empty Arrays");
+    int[] arr1e = {};
+    int[] arr2e = {};
+    int targett5 = 5;
+    System.out.println("Expected: []");
+    System.out.println("Actual: " + formatPairs(findPairs(arr1e, arr2e, targett5)));
     System.out.println();
 
   }
