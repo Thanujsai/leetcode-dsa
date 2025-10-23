@@ -27,6 +27,16 @@ public class Graph {
         }
         return false;
     }
+
+    public boolean removeEdge(String vertex1, String vertex2) {
+        if(adjList.get(vertex1) != null && adjList.get(vertex2) != null) {//both vertices exist
+            adjList.get(vertex1).remove(vertex2);//removing the edge from vertex1 to vertex2, since this is an undirected graph, we also need to remove the edge from vertex2 to vertex1
+            adjList.get(vertex2).remove(vertex1);
+
+            return true;
+        }
+        return false;
+    }
 }
 
 /*

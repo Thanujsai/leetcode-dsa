@@ -31,6 +31,18 @@ public class Main {
     graph.addEdge("A", "B");
     graph.printGraph();
 
+    graph.addVertex("C");
+    graph.addEdge("A", "C");
+    graph.addEdge("B", "C" );
+
+    graph.printGraph();
+
+    graph.removeEdge("A", "C");
+    graph.printGraph();
+
+    graph.removeEdge("B", "C");
+    graph.printGraph();
+
   }
 
 }
