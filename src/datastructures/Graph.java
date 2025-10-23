@@ -37,6 +37,19 @@ public class Graph {
         }
         return false;
     }
+
+    public boolean removeVertex(String vertex) {
+        if(adjList.get(vertex) != null) {
+            ArrayList<String> connectedVertices = adjList.get(vertex);
+            for(int i=0; i<connectedVertices.size(); i++) {
+                String adjacentVertex = connectedVertices.get(i);
+                adjList.get(adjacentVertex).remove(vertex);//removing the edge from the adjacent vertex to the vertex being removed
+            }
+            adjList.remove(vertex);//removing the vertex itself
+            return true;
+        }
+        return false;
+    }
 }
 
 /*

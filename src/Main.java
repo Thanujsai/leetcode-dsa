@@ -43,6 +43,27 @@ public class Main {
     graph.removeEdge("B", "C");
     graph.printGraph();
 
+    Graph newGraph = new Graph();
+    newGraph.addVertex("A");
+    newGraph.addVertex("B");
+    newGraph.addVertex("C");
+    newGraph.addVertex("D");
+
+    newGraph.addEdge("A", "B");
+    newGraph.addEdge("A", "C");
+    newGraph.addEdge("A", "D");
+
+    newGraph.addEdge("C", "D");
+    newGraph.addEdge("D", "B");
+
+    newGraph.printGraph();
+
+    System.out.println("Removing vertex D");
+    newGraph.removeVertex("D");
+    newGraph.printGraph();
+
+
+
   }
 
 }
