@@ -16,52 +16,24 @@ import datastructures.DoublyLinkedList;
 import datastructures.DoublyLinkedList.Node;
 import datastructures.Graph;
 import datastructures.HashTable;
+import datastructures.Heap;
 
 public class Main {
 
   public static void main(String[] args) {
-    Graph graph = new Graph();
+    Heap heap = new Heap();
+    heap.insert(99);
+    heap.insert(72);
+    heap.insert(61);
+    heap.insert(58);
 
-    graph.addVertex("A");
-    graph.printGraph();
+    System.out.println(heap.getHeap());
 
-    graph.addVertex("B");
-    graph.printGraph();
+    heap.insert(100);
+    System.out.println(heap.getHeap());
 
-    graph.addEdge("A", "B");
-    graph.printGraph();
-
-    graph.addVertex("C");
-    graph.addEdge("A", "C");
-    graph.addEdge("B", "C" );
-
-    graph.printGraph();
-
-    graph.removeEdge("A", "C");
-    graph.printGraph();
-
-    graph.removeEdge("B", "C");
-    graph.printGraph();
-
-    Graph newGraph = new Graph();
-    newGraph.addVertex("A");
-    newGraph.addVertex("B");
-    newGraph.addVertex("C");
-    newGraph.addVertex("D");
-
-    newGraph.addEdge("A", "B");
-    newGraph.addEdge("A", "C");
-    newGraph.addEdge("A", "D");
-
-    newGraph.addEdge("C", "D");
-    newGraph.addEdge("D", "B");
-
-    newGraph.printGraph();
-
-    System.out.println("Removing vertex D");
-    newGraph.removeVertex("D");
-    newGraph.printGraph();
-
+    heap.insert(75);
+    System.out.println(heap.getHeap());
 
 
   }
