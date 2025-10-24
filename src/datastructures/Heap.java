@@ -40,4 +40,42 @@ public class Heap {
             current = parent(current);//move up to the parent's index
         }
     }
+
+    public Integer remove() {
+        if(heap.size() == 0){
+            return null; //heap is empty
+        }
+
+        if(heap.size() == 1){
+            return heap.remove(0); //only one element in the heap
+        }
+
+        int maxValue = heap.get(0); //the root of the heap
+        heap.set(0, heap.remove(heap.size() - 1)); //replace root with the last element
+        sinkDown(0); //restore heap property
+        return maxValue;
+    }
+
+    public void sinkDown(int index) {
+        int maxIndex = index;
+        while(true){
+            int leftIndex = leftChild(maxIndex);
+            int rightIndex = rightChild(maxIndex);
+
+            if(leftIndex < heap.size() && heap.get(leftIndex) > heap.get(maxIndex)){
+                maxIndex = leftIndex;
+            }
+
+            if(rightIndex < heap.size() && heap.get(rightIndex) > heap.get(maxIndex)){
+                maxIndex = rightIndex;
+            }
+
+            if(maxIndex != index){
+                swap(index, maxIndex);
+                index = maxIndex;
+            } else {
+                return; //heap property is restored
+            }
+        }
+    }
 }

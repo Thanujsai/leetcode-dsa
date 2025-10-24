@@ -35,6 +35,26 @@ public class Main {
     heap.insert(75);
     System.out.println(heap.getHeap());
 
+    Heap heap2 = new Heap();
+    heap2.insert(95);
+    heap2.insert(75);
+    heap2.insert(80);
+    heap2.insert(55);
+    heap2.insert(60);
+    heap2.insert(50);
+    heap2.insert(65);
+
+    System.out.println(heap2.getHeap());
+
+    heap2.remove();
+    System.out.println(heap2.getHeap());
+
+    heap2.remove();
+    System.out.println(heap2.getHeap());
+
+    heap2.remove();
+    System.out.println(heap2.getHeap());
+
 
   }
 
